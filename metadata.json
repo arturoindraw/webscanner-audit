@@ -1,0 +1,8 @@
+{
+  "name": "WebScanner Audit",
+  "description": "Motor de auditoría técnica autónomo, análisis CRO y cotizador de rediseño web con interfaz visual estilo terminal de subagentes y árbol de decisiones.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

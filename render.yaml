@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: webscanner-audit
+    runtime: node
+    plan: free
+    buildCommand: npm run build:render
+    startCommand: npm start
+    healthCheckPath: /api/system/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: "https://webscanner-audit.onrender.com"
