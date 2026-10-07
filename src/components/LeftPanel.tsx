@@ -77,21 +77,19 @@ export const LeftPanel: React.FC<LeftPanelProps> = ({
 
   return (
     <>
-      <aside className={`w-full lg:w-96 flex flex-col border-r h-full overflow-hidden text-xs font-mono transition-colors ${
-        isDark ? 'border-[#21262D] bg-[#0D1117] text-[#C9D1D9]' : 'border-slate-200 bg-white text-slate-800'
+      <aside className={`w-full lg:w-96 flex flex-col border-r h-full overflow-hidden transition-colors ${
+        'border-[var(--color-border)] bg-[var(--color-background)] text-[var(--color-text-primary)]'
       }`}>
         {/* 1. HEALTH SCORE & METRICS OVERVIEW */}
         <div className={`p-3.5 border-b transition-colors ${
-          isDark ? 'border-[#21262D] bg-[#161B22]/50' : 'border-slate-200 bg-slate-50/80'
+            'border-[var(--color-border)] bg-[var(--color-surface)]'
         }`}>
           <div className="flex items-center justify-between mb-2">
-            <span className={`text-[10px] tracking-wider uppercase font-semibold ${
-              isDark ? 'text-[#8B949E]' : 'text-slate-500'
-            }`}>
+            <span className="text-base tracking-wider uppercase font-semibold text-[var(--color-text-secondary)]">
               ESTADO DE SALUD DEL SITIO
             </span>
             <span
-              className="text-[10px] px-2 py-0.5 font-bold border uppercase tracking-wider"
+              className="text-base px-2 py-0.5 font-bold border uppercase tracking-wider"
               style={{
                 color: scores.colorHex,
                 borderColor: scores.colorHex,
@@ -110,19 +108,19 @@ export const LeftPanel: React.FC<LeftPanelProps> = ({
             >
               {scores.overall}
             </div>
-            <div className={`text-xs pb-1 ${isDark ? 'text-[#8B949E]' : 'text-slate-500'}`}>
-              <span className={isDark ? 'text-[#C9D1D9]' : 'text-slate-800'}>/ 100</span> ÍNDICE GLOBAL CRO
+            <div className="text-base pb-1 text-[var(--color-text-secondary)]">
+              <span className="text-[var(--color-text-primary)]">/ 100</span> ÍNDICE GLOBAL CRO
             </div>
           </div>
 
           {/* Sub-Score Bars */}
-          <div className={`space-y-1.5 mt-3 pt-2 border-t ${isDark ? 'border-[#21262D]' : 'border-slate-200'}`}>
+          <div className="space-y-1.5 mt-3 pt-2 border-t border-[var(--color-border)]">
             {/* Performance */}
-            <div className="flex items-center justify-between text-[11px]">
-              <span className={`flex items-center gap-1.5 ${isDark ? 'text-[#8B949E]' : 'text-slate-600'}`}>
+            <div className="flex items-center justify-between text-base">
+              <span className="flex items-center gap-1.5 text-[var(--color-text-secondary)]">
                 <Zap className="w-3 h-3 text-[#D29922]" /> Rendimiento & Red
               </span>
-              <span className={`tabular-nums font-bold ${isDark ? 'text-[#C9D1D9]' : 'text-slate-800'}`}>
+              <span className="tabular-nums font-bold text-[var(--color-text-primary)]">
                 {scores.performance}%
               </span>
             </div>
@@ -134,11 +132,11 @@ export const LeftPanel: React.FC<LeftPanelProps> = ({
             </div>
 
             {/* Tech Stack */}
-            <div className="flex items-center justify-between text-[11px] pt-1">
-              <span className={`flex items-center gap-1.5 ${isDark ? 'text-[#8B949E]' : 'text-slate-600'}`}>
+            <div className="flex items-center justify-between text-base pt-1">
+              <span className="flex items-center gap-1.5 text-[var(--color-text-secondary)]">
                 <Layers className="w-3 h-3 text-[#56D4DD]" /> Stack & Estándares
               </span>
-              <span className={`tabular-nums font-bold ${isDark ? 'text-[#C9D1D9]' : 'text-slate-800'}`}>
+              <span className="tabular-nums font-bold text-[var(--color-text-primary)]">
                 {scores.tech}%
               </span>
             </div>
@@ -150,11 +148,11 @@ export const LeftPanel: React.FC<LeftPanelProps> = ({
             </div>
 
             {/* CRO */}
-            <div className="flex items-center justify-between text-[11px] pt-1">
-              <span className={`flex items-center gap-1.5 ${isDark ? 'text-[#8B949E]' : 'text-slate-600'}`}>
+            <div className="flex items-center justify-between text-base pt-1">
+              <span className="flex items-center gap-1.5 text-[var(--color-text-secondary)]">
                 <MousePointerClick className="w-3 h-3 text-[#3FB950]" /> Conversión (CRO)
               </span>
-              <span className={`tabular-nums font-bold ${isDark ? 'text-[#C9D1D9]' : 'text-slate-800'}`}>{scores.cro}%</span>
+              <span className="tabular-nums font-bold text-[var(--color-text-primary)]">{scores.cro}%</span>
             </div>
             <div className={`w-full h-1 ${isDark ? 'bg-[#21262D]' : 'bg-slate-200'}`}>
               <div
@@ -164,11 +162,11 @@ export const LeftPanel: React.FC<LeftPanelProps> = ({
             </div>
 
             {/* Security */}
-            <div className="flex items-center justify-between text-[11px] pt-1">
-              <span className={`flex items-center gap-1.5 ${isDark ? 'text-[#8B949E]' : 'text-slate-600'}`}>
+            <div className="flex items-center justify-between text-base pt-1">
+              <span className="flex items-center gap-1.5 text-[var(--color-text-secondary)]">
                 <Shield className="w-3 h-3 text-[#8B949E]" /> Seguridad & SSL
               </span>
-              <span className={`tabular-nums font-bold ${isDark ? 'text-[#C9D1D9]' : 'text-slate-800'}`}>
+              <span className="tabular-nums font-bold text-[var(--color-text-primary)]">
                 {scores.security}%
               </span>
             </div>
@@ -182,20 +180,18 @@ export const LeftPanel: React.FC<LeftPanelProps> = ({
         </div>
 
         {/* 2. REGISTRO DE ERRORES & HALLAZGOS */}
-        <div className={`p-3 border-b max-h-72 overflow-y-auto ${isDark ? 'border-[#21262D]' : 'border-slate-200'}`}>
+        <div className="p-3 border-b max-h-72 overflow-y-auto border-[var(--color-border)]">
           <div className="flex flex-wrap items-center justify-between gap-1.5 mb-2.5">
-            <span className={`text-[10px] tracking-wider uppercase font-semibold ${
-              isDark ? 'text-[#8B949E]' : 'text-slate-500'
-            }`}>
+            <span className="text-base tracking-wider uppercase font-semibold text-[var(--color-text-secondary)]">
               REGISTRO DE HALLAZGOS
             </span>
 
             <button
               onClick={() => setIsPlainMode(!isPlainMode)}
-              className={`flex items-center gap-1 px-1.5 py-0.5 text-[9px] font-bold border transition-colors cursor-pointer ${
+              className={`flex items-center gap-1 px-1.5 py-0.5 text-base font-bold border transition-colors cursor-pointer ${
                 isPlainMode
-                  ? 'bg-[#D29922]/15 border-[#D29922] text-[#D29922]'
-                  : isDark ? 'bg-[#161B22] border-[#30363D] text-[#8B949E]' : 'bg-slate-100 border-slate-300 text-slate-600'
+                  ? 'bg-[var(--color-control-selected-background)] border-[var(--color-control-selected-border)] text-[var(--color-control-selected-foreground)]'
+                  : 'bg-[var(--color-control-background)] border-[var(--color-control-border)] text-[var(--color-control-foreground)]'
               }`}
             >
               <Lightbulb className="w-3 h-3" />
@@ -214,43 +210,37 @@ export const LeftPanel: React.FC<LeftPanelProps> = ({
                   key={issue.id}
                   className={`border transition-all duration-150 ${
                     isCritical
-                      ? isDark
-                        ? 'bg-[#161B22] border-l-4 border-l-[#F85149] border-y-[#21262D] border-r-[#21262D]'
-                        : 'bg-rose-50/50 border-l-4 border-l-rose-600 border-y-slate-200 border-r-slate-200'
-                      : isDark
-                      ? 'bg-[#161B22]/70 border-l-4 border-l-[#D29922] border-y-[#21262D] border-r-[#21262D]'
-                      : 'bg-amber-50/40 border-l-4 border-l-amber-500 border-y-slate-200 border-r-slate-200'
+                      ? 'bg-[var(--color-surface)] border-l-4 border-l-[var(--color-error)] border-y-[var(--color-border)] border-r-[var(--color-border)]'
+                      : 'bg-[var(--color-surface)] border-l-4 border-l-[var(--color-warning)] border-y-[var(--color-border)] border-r-[var(--color-border)]'
                   }`}
                 >
                   <div
                     onClick={() => onSelectIssue && onSelectIssue(issue)}
                     className="p-2 cursor-pointer hover:opacity-90 transition-opacity"
                   >
-                    <div className="flex items-start justify-between gap-1 text-[11px] font-bold">
-                      <span className={isCritical ? 'text-[#F85149]' : 'text-[#D29922]'}>
+                    <div className="flex items-start justify-between gap-1 text-base font-bold">
+                      <span className={isCritical ? 'text-[var(--color-error)] underline decoration-2 underline-offset-2' : 'text-[var(--color-warning)]'}>
                         {isPlainMode ? plain.simpleTitle : issue.title}
                       </span>
                       <span
-                        className={`text-[9px] px-1 shrink-0 ${
+                        className={`text-sm px-1 shrink-0 ${
                           isCritical
-                            ? 'bg-[#F85149]/20 text-[#F85149]'
-                            : 'bg-[#D29922]/20 text-[#D29922]'
+                            ? 'bg-[var(--color-error-subtle)] text-[var(--color-error)]'
+                            : 'bg-[var(--color-surface-raised)] text-[var(--color-warning)]'
                         }`}
                       >
                         -{issue.impactScore}pts
                       </span>
                     </div>
 
-                    <p className={`text-[10px] mt-1 line-clamp-2 ${isDark ? 'text-[#8B949E]' : 'text-slate-600'}`}>
+                    <p className="text-base mt-1 line-clamp-2 text-[var(--color-text-secondary)]">
                       {isPlainMode ? `💡 ${plain.analogy}` : issue.description}
                     </p>
 
-                    <div className={`flex items-center justify-between mt-2 pt-1.5 border-t text-[10px] ${
-                      isDark ? 'border-[#21262D]' : 'border-slate-200'
-                    }`}>
+                    <div className="flex items-center justify-between mt-2 pt-1.5 border-t text-base border-[var(--color-border)]">
                       <button
                         onClick={(e) => toggleExpand(e, issue.id)}
-                        className="text-[#56D4DD] hover:underline flex items-center gap-1 cursor-pointer"
+                        className="text-[var(--color-accent)] hover:underline flex items-center gap-1 cursor-pointer"
                       >
                         {isExpanded ? (
                           <>
@@ -270,7 +260,7 @@ export const LeftPanel: React.FC<LeftPanelProps> = ({
                           e.stopPropagation();
                           setActiveModalIssue(issue);
                         }}
-                        className="text-[#D29922] hover:text-[#e4a835] flex items-center gap-1 cursor-pointer bg-[#D29922]/10 px-1.5 py-0.5"
+                        className="text-[var(--color-warning)] hover:underline flex items-center gap-1 cursor-pointer bg-[var(--color-surface-raised)] px-1.5 py-0.5"
                       >
                         <Lightbulb className="w-3 h-3" />
                         <span>Ventana completa</span>

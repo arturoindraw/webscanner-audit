@@ -80,7 +80,7 @@ app.post('/api/audit', async (req: Request, res: Response) => {
     // Check if the URL matches one of our preset archetypes
     const matchedPreset = PRESET_WEBSITES.find(
       (p) =>
-        p.url.toLowerCase() === url.toLowerCase() ||
+        new URL(p.url).hostname === urlObj.hostname ||
         p.id.toLowerCase() === url.toLowerCase() ||
         p.name.toLowerCase().includes(url.toLowerCase())
     );

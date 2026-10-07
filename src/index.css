@@ -1,27 +1,96 @@
 @import "tailwindcss";
 
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --color-background: #0D1117;
+  --color-surface: #161B22;
+  --color-surface-raised: #21262D;
+  --color-text-primary: #C9D1D9;
+  --color-text-secondary: #8B949E;
+  --color-border: #30363D;
+  --color-accent: #56D4DD;
+  --color-success: #3FB950;
+  --color-warning: #D29922;
+  --color-error: #F85149;
+  --color-error-subtle: rgb(248 81 73 / 15%);
+  --color-focus: #58A6FF;
+  --color-control-background: #161B22;
+  --color-control-foreground: #C9D1D9;
+  --color-control-border: #30363D;
+  --color-control-hover-background: #30363D;
+  --color-control-hover-foreground: #C9D1D9;
+  --color-control-hover-border: #484F58;
+  --color-control-focus-background: #161B22;
+  --color-control-focus-foreground: #C9D1D9;
+  --color-control-focus-border: #58A6FF;
+  --color-control-disabled-background: #161B22;
+  --color-control-disabled-foreground: #8B949E;
+  --color-control-disabled-border: #30363D;
+  --color-control-selected-background: #0D1117;
+  --color-control-selected-foreground: #56D4DD;
+  --color-control-selected-border: #56D4DD;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --color-background: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-surface-raised: #F1F5F9;
+  --color-text-primary: #1F2937;
+  --color-text-secondary: #475569;
+  --color-border: #CBD5E1;
+  --color-accent: #0F766E;
+  --color-success: #15803D;
+  --color-warning: #A16207;
+  --color-error: #B91C1C;
+  --color-error-subtle: #FEE2E2;
+  --color-focus: #0F766E;
+  --color-control-background: #FFFFFF;
+  --color-control-foreground: #1F2937;
+  --color-control-border: #CBD5E1;
+  --color-control-hover-background: #F1F5F9;
+  --color-control-hover-foreground: #1F2937;
+  --color-control-hover-border: #94A3B8;
+  --color-control-focus-background: #FFFFFF;
+  --color-control-focus-foreground: #1F2937;
+  --color-control-focus-border: #0F766E;
+  --color-control-disabled-background: #F1F5F9;
+  --color-control-disabled-foreground: #475569;
+  --color-control-disabled-border: #CBD5E1;
+  --color-control-selected-background: #F0FDFA;
+  --color-control-selected-foreground: #0F766E;
+  --color-control-selected-border: #0F766E;
+}
+
 @layer base {
   body {
-    font-family: 'JetBrains Mono', monospace;
-    background-color: #0D1117;
-    color: #C9D1D9;
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 2px;
   }
 }
 
-/* Custom terminal scrollbars */
+/* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0D1117;
+  background: var(--color-background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #21262D;
+  background: var(--color-surface-raised);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #30363D;
+  background: var(--color-border);
 }
 
 @keyframes terminal-blink {

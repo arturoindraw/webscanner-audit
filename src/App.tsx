@@ -204,12 +204,11 @@ export default function App() {
     }
   };
 
-  const isDark = theme === 'dark';
-
   return (
-    <div className={`flex flex-col h-screen w-screen font-mono overflow-hidden select-text transition-colors duration-200 ${
-      isDark ? 'bg-[#0D1117] text-[#C9D1D9]' : 'bg-slate-100 text-slate-800'
-    }`}>
+    <div
+      data-theme={theme}
+      className="flex flex-col h-screen w-screen overflow-hidden select-text transition-colors duration-200 bg-[var(--color-background)] text-[var(--color-text-primary)]"
+    >
       {/* 1. Header with URL bar, theme toggle & exploraciones relacionadas */}
       <Header
         currentUrl={currentResult.url}
@@ -224,16 +223,14 @@ export default function App() {
       />
 
       {/* Main Tab Switcher Bar */}
-      <div className={`border-b px-4 flex flex-wrap items-center justify-between text-xs font-mono transition-colors ${
-        isDark ? 'border-[#21262D] bg-[#161B22]' : 'border-slate-200 bg-white'
-      }`}>
+      <div className="border-b px-4 flex flex-wrap items-center justify-between text-base transition-colors border-[var(--color-border)] bg-[var(--color-surface)]">
         <div className="flex items-center overflow-x-auto">
           <button
             onClick={() => setActiveTab('tree')}
-            className={`flex items-center gap-1.5 px-3 py-2 border-b-2 font-bold transition-colors cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-2 border-b-2 text-base font-bold transition-colors cursor-pointer ${
               activeTab === 'tree'
-                ? isDark ? 'border-[#56D4DD] text-[#56D4DD] bg-[#0D1117]' : 'border-teal-600 text-teal-700 bg-slate-50'
-                : isDark ? 'border-transparent text-[#8B949E] hover:text-[#C9D1D9]' : 'border-transparent text-slate-500 hover:text-slate-800'
+                ? 'border-[var(--color-control-selected-border)] text-[var(--color-control-selected-foreground)] bg-[var(--color-control-selected-background)]'
+                : 'border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-control-hover-foreground)]'
             }`}
           >
             <GitFork className="w-3.5 h-3.5" />
@@ -242,10 +239,10 @@ export default function App() {
 
           <button
             onClick={() => setActiveTab('network')}
-            className={`flex items-center gap-1.5 px-3 py-2 border-b-2 font-bold transition-colors cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-2 border-b-2 text-base font-bold transition-colors cursor-pointer ${
               activeTab === 'network'
-                ? isDark ? 'border-[#D29922] text-[#D29922] bg-[#0D1117]' : 'border-amber-600 text-amber-700 bg-slate-50'
-                : isDark ? 'border-transparent text-[#8B949E] hover:text-[#C9D1D9]' : 'border-transparent text-slate-500 hover:text-slate-800'
+                ? 'border-[var(--color-control-selected-border)] text-[var(--color-control-selected-foreground)] bg-[var(--color-control-selected-background)]'
+                : 'border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-control-hover-foreground)]'
             }`}
           >
             <Zap className="w-3.5 h-3.5" />
@@ -254,10 +251,10 @@ export default function App() {
 
           <button
             onClick={() => setActiveTab('tech')}
-            className={`flex items-center gap-1.5 px-3 py-2 border-b-2 font-bold transition-colors cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-2 border-b-2 text-base font-bold transition-colors cursor-pointer ${
               activeTab === 'tech'
-                ? isDark ? 'border-[#56D4DD] text-[#56D4DD] bg-[#0D1117]' : 'border-teal-600 text-teal-700 bg-slate-50'
-                : isDark ? 'border-transparent text-[#8B949E] hover:text-[#C9D1D9]' : 'border-transparent text-slate-500 hover:text-slate-800'
+                ? 'border-[var(--color-control-selected-border)] text-[var(--color-control-selected-foreground)] bg-[var(--color-control-selected-background)]'
+                : 'border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-control-hover-foreground)]'
             }`}
           >
             <Layers className="w-3.5 h-3.5" />
@@ -266,10 +263,10 @@ export default function App() {
 
           <button
             onClick={() => setActiveTab('security')}
-            className={`flex items-center gap-1.5 px-3 py-2 border-b-2 font-bold transition-colors cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-2 border-b-2 text-base font-bold transition-colors cursor-pointer ${
               activeTab === 'security'
-                ? isDark ? 'border-[#F85149] text-[#F85149] bg-[#0D1117]' : 'border-rose-600 text-rose-700 bg-slate-50'
-                : isDark ? 'border-transparent text-[#8B949E] hover:text-[#C9D1D9]' : 'border-transparent text-slate-500 hover:text-slate-800'
+                ? 'border-[var(--color-control-selected-border)] text-[var(--color-control-selected-foreground)] bg-[var(--color-control-selected-background)]'
+                : 'border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-control-hover-foreground)]'
             }`}
           >
             <ShieldAlert className="w-3.5 h-3.5" />
@@ -278,10 +275,10 @@ export default function App() {
 
           <button
             onClick={() => setActiveTab('cro')}
-            className={`flex items-center gap-1.5 px-3 py-2 border-b-2 font-bold transition-colors cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3 py-2 border-b-2 text-base font-bold transition-colors cursor-pointer ${
               activeTab === 'cro'
-                ? isDark ? 'border-[#3FB950] text-[#3FB950] bg-[#0D1117]' : 'border-emerald-600 text-emerald-700 bg-slate-50'
-                : isDark ? 'border-transparent text-[#8B949E] hover:text-[#C9D1D9]' : 'border-transparent text-slate-500 hover:text-slate-800'
+                ? 'border-[var(--color-control-selected-border)] text-[var(--color-control-selected-foreground)] bg-[var(--color-control-selected-background)]'
+                : 'border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-control-hover-foreground)]'
             }`}
           >
             <MousePointerClick className="w-3.5 h-3.5" />
@@ -290,10 +287,10 @@ export default function App() {
 
           <button
             onClick={() => setActiveTab('quote')}
-            className={`flex items-center gap-1.5 px-3.5 py-2 border-b-2 font-bold transition-colors cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3.5 py-2 border-b-2 text-base font-bold transition-colors cursor-pointer ${
               activeTab === 'quote'
-                ? isDark ? 'border-[#3FB950] text-[#3FB950] bg-[#0D1117]' : 'border-emerald-600 text-emerald-700 bg-slate-50'
-                : isDark ? 'border-transparent text-[#3FB950]/80 hover:text-[#3FB950]' : 'border-transparent text-emerald-600/80 hover:text-emerald-700'
+                ? 'border-[var(--color-control-selected-border)] text-[var(--color-control-selected-foreground)] bg-[var(--color-control-selected-background)]'
+                : 'border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-control-hover-foreground)]'
             }`}
           >
             <Coins className="w-3.5 h-3.5" />
@@ -306,10 +303,10 @@ export default function App() {
               setAiPrompt(undefined);
               setActiveTab('ai');
             }}
-            className={`flex items-center gap-1.5 px-3.5 py-2 border-b-2 font-bold transition-colors cursor-pointer ${
+              className={`flex items-center gap-1.5 px-3.5 py-2 border-b-2 text-base font-bold transition-colors cursor-pointer ${
               activeTab === 'ai'
-                ? isDark ? 'border-[#56D4DD] text-[#56D4DD] bg-[#0D1117]' : 'border-teal-600 text-teal-700 bg-slate-50'
-                : isDark ? 'border-transparent text-[#56D4DD] hover:text-[#7ee7ef]' : 'border-transparent text-teal-700 hover:text-teal-900'
+                ? 'border-[var(--color-control-selected-border)] text-[var(--color-control-selected-foreground)] bg-[var(--color-control-selected-background)]'
+                : 'border-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-control-hover-foreground)]'
             }`}
           >
             <Bot className="w-3.5 h-3.5 animate-pulse" />
@@ -320,11 +317,7 @@ export default function App() {
         {/* Docs Button */}
         <button
           onClick={() => setIsDocsOpen(true)}
-          className={`flex items-center gap-1.5 px-3 py-1 text-[11px] font-semibold transition-colors cursor-pointer my-1 border ${
-            isDark
-              ? 'bg-[#21262D] hover:bg-[#30363D] border-[#30363D] text-[#56D4DD]'
-              : 'bg-slate-100 hover:bg-slate-200 border-slate-300 text-teal-800'
-          }`}
+          className="flex items-center gap-1.5 px-3 py-1 text-base font-semibold transition-colors cursor-pointer my-1 border bg-[var(--color-control-background)] hover:bg-[var(--color-control-hover-background)] hover:text-[var(--color-control-hover-foreground)] border-[var(--color-control-border)] text-[var(--color-accent)]"
         >
           <BookOpen className="w-3.5 h-3.5" />
           <span>DOCS & GUÍA VPS</span>
@@ -333,14 +326,14 @@ export default function App() {
 
       {/* Error Banner if any */}
       {errorMessage && (
-        <div className="bg-[#F85149]/15 border-b border-[#F85149]/40 text-[#F85149] px-4 py-2 text-xs flex items-center justify-between">
+        <div className="bg-[var(--color-error-subtle)] border-b border-[var(--color-error)] text-[var(--color-error)] px-4 py-2 text-base flex items-center justify-between">
           <div className="flex items-center gap-2">
             <AlertCircle className="w-4 h-4" />
             <span><strong>AVISO:</strong> {errorMessage}</span>
           </div>
           <button
             onClick={() => setErrorMessage(null)}
-            className="text-[10px] text-[#C9D1D9] hover:underline cursor-pointer"
+            className="text-base text-[var(--color-text-primary)] hover:underline cursor-pointer"
           >
             DESCARTAR
           </button>
@@ -368,9 +361,7 @@ export default function App() {
         />
 
         {/* Central Viewport */}
-        <main className={`flex-1 flex flex-col overflow-hidden transition-colors ${
-          isDark ? 'bg-[#0D1117]' : 'bg-slate-50'
-        }`}>
+        <main className="flex-1 flex flex-col overflow-hidden transition-colors bg-[var(--color-background)]">
           {activeTab === 'tree' && (
             <DecisionTree
               subagents={currentResult.subagents}
